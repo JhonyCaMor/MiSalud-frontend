@@ -3,7 +3,7 @@
 // Uso:  npm run smoke
 // Para incluir una venta de prueba (persiste datos):
 //   $env:ALLOW_WRITES=1  (PowerShell)  |  ALLOW_WRITES=1 (bash)
-const BASE = process.env.SMOKE_BASE ?? "https://misalud-backend-mwoi.onrender.com";
+const BASE = process.env.SMOKE_BASE ?? "http://localhost:3000/api";
 
 const results = [];
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
