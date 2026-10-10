@@ -11,7 +11,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(rootDir, "src"),
-      "@backend": path.resolve(rootDir, "../misalud-backend/src"),
+      "@backend": path.resolve(rootDir, "../MiSalud-backend/src"),
     },
   },
   server: {
