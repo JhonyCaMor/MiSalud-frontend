@@ -11,11 +11,8 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(rootDir, "src"),
-<<<<<<< HEAD
       "@backend": path.resolve(rootDir, "../misalud-backend/src"),
-=======
      // "@backend": path.resolve(rootDir, "../misalud-backend/src"),
->>>>>>> 4788b2d (fix: remover alias @backend y optimizar vite.config para Netlify)
     },
   },
   server: {
