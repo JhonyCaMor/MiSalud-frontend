@@ -11,15 +11,20 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(rootDir, "src"),
+<<<<<<< HEAD
       "@backend": path.resolve(rootDir, "../misalud-backend/src"),
+=======
+     // "@backend": path.resolve(rootDir, "../misalud-backend/src"),
+>>>>>>> 4788b2d (fix: remover alias @backend y optimizar vite.config para Netlify)
     },
   },
   server: {
-    host: true,
+    host: false, //Adicionar redes locales y virtuales vea pues :)
     port: 5173,
     proxy: {
       "/api": {
-        target: "https://misalud-backend-mwoi.onrender.com",
+        target: "https://misalud-backend-mwoi.onrender.com", //BackReal
+        //target: "http://localhost:3000/", //Backend Prueba Localhost
         changeOrigin: true,
       },
     },
