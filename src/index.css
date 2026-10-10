@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   MiSalud · Identidad de marca (Salud Digital)
+   -------------------------------------------------------------------------
+   5 colores corporativos. Cada uno se expone como escala Tailwind v4, por lo
+   que genera utilidades (bg-*, text-*, border-*, ring-*):
+     1. brand    (Azul Salud)        #0052CC  → confianza / acciones primarias
+     2. pharma   (Verde Farmacéutico)#10B981  → éxito / disponible / inventario
+     3. alert    (Ámbar Clínico)     #F59E0B  → advertencia / stock bajo
+     4. danger   (Rojo Alerta)       #E74C3C  → error / vencido / fuera de rango
+     5. ink      (Gris Pizarra)      #0F4C81 → texto/estructura. Neutros slate.
+   Los pares de tono en ui.tsx respetan contraste WCAG AA (≥4.5:1 en texto).
+   ========================================================================= */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* 1 · Azul Salud (primario) */
+  --color-brand-50: #eff5ff;
+  --color-brand-100: #dbe8ff;
+  --color-brand-200: #b7d0ff;
+  --color-brand-300: #86b0ff;
+  --color-brand-400: #4f88f0;
+  --color-brand-500: #1f63d6;
+  --color-brand-600: #0052cc;
+  --color-brand-700: #0f4c81;
+  --color-brand-800: #0c3d68;
+  --color-brand-900: #0a3153;
+
+  /* 2 · Verde Farmacéutico (éxito / disponible) */
+  --color-pharma-50: #ecfdf5;
+  --color-pharma-100: #d1fae5;
+  --color-pharma-200: #a7f3d0;
+  --color-pharma-300: #6ee7b7;
+  --color-pharma-400: #34d399;
+  --color-pharma-500: #10b981;
+  --color-pharma-600: #00a86b;
+  --color-pharma-700: #047857;
+  --color-pharma-800: #065f46;
+  --color-pharma-900: #064e3b;
+
+  /* 3 · Ámbar Clínico (advertencia) */
+  --color-alert-50: #fffbeb;
+  --color-alert-100: #fef3c7;
+  --color-alert-200: #fde68a;
+  --color-alert-300: #fcd34d;
+  --color-alert-400: #fbbf24;
+  --color-alert-500: #f59e0b;
+  --color-alert-600: #d97706;
+  --color-alert-700: #b45309;
+  --color-alert-800: #92400e;
+  --color-alert-900: #78350f;
+
+  /* 4 · Rojo Alerta (error / crítico) */
+  --color-danger-50: #fef2f2;
+  --color-danger-100: #fee2e2;
+  --color-danger-200: #fecaca;
+  --color-danger-300: #fca5a5;
+  --color-danger-400: #f87171;
+  --color-danger-500: #e74c3c;
+  --color-danger-600: #d63d2e;
+  --color-danger-700: #b91c1c;
+  --color-danger-800: #991b1b;
+  --color-danger-900: #7f1d1d;
+
+  /* Animaciones de micro-interacción */
+  --animate-flash-row: flash-row 0.9s ease-out;
+  --animate-pop: pop 0.25s ease-out;
+}
+
+@keyframes flash-row {
+  0% {
+    background-color: var(--color-brand-100);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.4;
+  }
+  60% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased;
+  font-family: var(--font-sans);
+}
+
+/* Foco visible consistente para navegación por teclado (WCAG 2.4.7) */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  @apply outline-none ring-2 ring-brand-500 ring-offset-1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

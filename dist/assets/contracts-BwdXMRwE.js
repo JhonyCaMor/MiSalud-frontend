@@ -1,0 +1,1 @@
+var e=[`super_admin`,`supervisor`,`vendedor`],t=[`Medicamento`,`Dispositivo médico`,`Insumo`,`Cosmético`];export{t as n,e as t};
