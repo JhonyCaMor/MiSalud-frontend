@@ -52,8 +52,19 @@ async function handle<T>(res: Response): Promise<T> {
 }
 
 function buildUrl(path: string): string {
-  const base = import.meta.env.VITE_API_BASE ?? "/api";
-  return `${base}${path}`;
+  //const base = import.meta.env.VITE_API_BASE ?? "/api";
+  //return `${base}${path}`;
+  // Lee VITE_API_URL (de Netlify) o VITE_API_BASE. Si no existen, usa ""
+  const baseUrl = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE || "";
+  
+  // Si baseUrl ya tiene valor (producción en Render), la une con /api
+  // Si está vacía (desarrollo local), usa la ruta relativa /api para pasar por el proxy de Vite
+  const apiPrefix = baseUrl ? `${baseUrl}/api` : "/api";
+  
+  // Asegura no duplicar barras diagonales al unir la ruta
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  
+  return `${apiPrefix}${cleanPath}`;
 }
 
 async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
