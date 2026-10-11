@@ -4,11 +4,11 @@ import { useAuth } from "@/context/AuthContext";
 import { ApiError } from "@/lib/client";
 import { Alert, Button, Card, Input } from "@/components/ui";
 
-const DEMO_HINTS = [
-  ["superadmin@misalud.com", "Admin123!", "Administrador global"],
-  ["supervisor.cali@misalud.com", "Supervisor123!", "Supervisor ciudad Cali"],
-  ["vendedor.cali@misalud.com", "Vendedor123!", "Vendedor sucursal Cali Centro"],
-] as const;
+//const DEMO_HINTS = [
+ // ["superadmin@misalud.com", "Admin123!", "Administrador global"],
+  //["supervisor.cali@misalud.com", "Supervisor123!", "Supervisor ciudad Cali"],
+  //["vendedor.cali@misalud.com", "Vendedor123!", "Vendedor sucursal Cali Centro"],
+//] as const;
 
 export function LoginPage() {
   const { login } = useAuth();
@@ -71,7 +71,7 @@ export function LoginPage() {
                 autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
+                placeholder="••••••••••••••••••"
                 required
               />
             </div>
@@ -80,10 +80,10 @@ export function LoginPage() {
             </Button>
           </form>
         </Card>
-        <div className="mt-5">
-          <p className="mb-2 text-center text-xs font-medium uppercase tracking-wide text-slate-400">
-            Cuentas de prueba cargadas en el sistema
-          </p>
+      {/*   <div className="mt-5">
+          { <p className="mb-2 text-center text-xs font-medium uppercase tracking-wide text-slate-400">
+          Cuentas de prueba cargadas en el sistema
+          </p> }
           <div className="space-y-2">
             {DEMO_HINTS.map(([em, pw, label]) => (
               <button
@@ -97,9 +97,9 @@ export function LoginPage() {
                   {em} · {pw}
                 </span>
               </button>
-            ))}
-          </div>
-        </div>
+            ))} 
+          </div> 
+        </div>*/}
       </div>
     </div>
   );
